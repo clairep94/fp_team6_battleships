@@ -1,9 +1,12 @@
-const TicTacToeGame = require("../models/tictactoe_game");
+const MockGame = require("../models/mock_game");
 const TokenGenerator = require("../lib/token_generator");
 
-const TicTacToeGameController = {
+const MockGameController = {
     Index: (req, res) => {
-        TicTacToeGame.find()
+        MockGame.find()
+        .populate('player_one', '-password')
+        .populate('player_two', '-password')
+        .populate('')
     //     // .populate('user_id', '-password') // Populate the 'user_id' field with the entire User document
     //     // .populate('likes', '-password')
     //     // .populate('comments')
